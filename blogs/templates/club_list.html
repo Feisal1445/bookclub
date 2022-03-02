@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Clubs</h1>
+      <table class="table">
+        <tr>
+          <td>Club Name</td>
+          <td> | Club Description</td>
+          <td> | Show Club</td>
+        </tr>
+        {% for club in clubs %}
+          <tr>
+            <td>{{ club.name }}</td>
+            <td> | {{ club.description }}</td>
+            <td><a href="{% url 'show_club' club.name %}">{{ " | Show Club" }}</a></td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>

@@ -56,3 +56,15 @@ def club_creation(request):
     else:
         form = ClubCreationForm(initial = {'owner': request.user})
     return render(request, 'new_club.html', {'form': form})
+
+def show_club(request, club_name):
+    try:
+        club = Club.objects.get(name=club_name)
+    except ObjectDoesNotExist:
+        return redirect('club_list')
+    else:
+        return render(request, 'show_club.html', {'club': club})
+
+def club_list(request):
+    clubs = Club.objects.all()
+    return render(request, 'club_list.html', {'clubs': clubs})
