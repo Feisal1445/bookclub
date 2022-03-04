@@ -1,6 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator
-from .models import User, Club
+from .models import User, Club, JoinedClub
 from django.utils.safestring import mark_safe
 
 
@@ -63,3 +63,8 @@ class ClubCreationForm(forms.ModelForm):
         widgets = {
             'owner': forms.HiddenInput(attrs = {'is_hidden': True})
         }
+
+class JoinedClubsForm(forms.ModelForm):
+    class Meta:
+        model = JoinedClub
+        fields = ["userID","clubName"]

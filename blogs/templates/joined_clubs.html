@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>My Clubs</h1>
+      <table class="table">
+        <tr>
+          <td>User</td>
+          <td> | Club</td>
+        </tr>
+        {% for club in joinedClubs %}
+          <tr>
+            <td>{{ club.userID }}</td>
+            <td> | {{ club.clubName }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>

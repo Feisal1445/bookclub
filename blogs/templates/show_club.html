@@ -3,5 +3,11 @@
     <div class="col-xs-12 col-lg-6 col-xl-4">
       {% include 'partials/club_profile.html' %}
     </div>
+    <form action="{% url 'show_club' club.name %}" method="post">
+      {% csrf_token %}
+        {{ form }}
+        <hr size="8" width="90%" color="white">
+        <input type="submit" value="Join Club">
+    </form>
   </div>
 </div>

@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from .forms import SignUpForm, SignInForm, ClubCreationForm
+from .forms import SignUpForm, SignInForm, ClubCreationForm, JoinedClubsForm
 from django.contrib.auth import authenticate, login, logout
-from .models import Club
+from .models import Club, JoinedClub
 from django.contrib import messages
 
 
@@ -60,7 +60,14 @@ def club_creation(request):
 def show_club(request, club_name):
     try:
         club = Club.objects.get(name=club_name)
-    except ObjectDoesNotExist:
+        if request.method == 'POST':
+            form = JoinedClubsForm()
+            if form.is_valid():
+                form.save()
+                messages.add_message(request, messages.SUCCESS, "Joined club.")
+                return redirect('club_list')
+    except:
+        messages.add_message(request, messages.ERROR, "No club found.")
         return redirect('club_list')
     else:
         return render(request, 'show_club.html', {'club': club})
@@ -68,3 +75,7 @@ def show_club(request, club_name):
 def club_list(request):
     clubs = Club.objects.all()
     return render(request, 'club_list.html', {'clubs': clubs})
+
+def joined_club(request):
+    joinedClubs = JoinedClub.objects.all()
+    return render(request, 'joined_clubs.html', {'joinedClubs': joinedClubs})

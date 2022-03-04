@@ -36,3 +36,7 @@ class Club(models.Model):
     location=models.CharField(max_length=100, blank=False)
     mission_statement=models.CharField(max_length=200, blank=False)
     description=models.CharField(max_length=500, blank=False)
+
+class JoinedClub(models.Model):
+    userID = models.ForeignKey(User, on_delete=models.CASCADE, null = True)
+    clubName = models.ForeignKey(Club, on_delete=models.CASCADE, null = True)
