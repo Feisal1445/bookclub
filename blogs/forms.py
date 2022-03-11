@@ -59,7 +59,7 @@ class ClubCreationForm(forms.ModelForm):
     """Form enabling logged user to create a new club."""
     class Meta:
         model = Club
-        fields = ['name', 'owner', 'location', 'mission_statement', 'description']
+        fields = ['name', 'owner', 'description']
         widgets = {
             'owner': forms.HiddenInput(attrs = {'is_hidden': True})
         }

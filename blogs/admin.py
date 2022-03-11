@@ -14,5 +14,5 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(Club)
 class ClubAdmin(admin.ModelAdmin):
     list_display = [
-        'id', 'name', 'owner'
+        'id', 'name', 'owner', 'description'
     ]

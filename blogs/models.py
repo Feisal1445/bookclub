@@ -33,6 +33,6 @@ class Club(models.Model):
         )])
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
-    location=models.CharField(max_length=100, blank=False)
-    mission_statement=models.CharField(max_length=200, blank=False)
-    description=models.CharField(max_length=500, blank=False)
+    location=models.CharField(max_length=100, blank=True)
+    mission_statement=models.CharField(max_length=200, blank=True)
+    description=models.TextField(max_length=500, blank=False)

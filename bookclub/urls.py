@@ -25,4 +25,5 @@ urlpatterns = [
     path('group', views.group, name = 'group'),
     path('new_club/', views.club_creation, name='new_club'),
 
+
 ]
