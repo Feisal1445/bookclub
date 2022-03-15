@@ -1,4 +1,5 @@
 faker
+coverage==6.3.2
 asgiref==3.5.0
 Django==4.0.2
 django-widget-tweaks==1.4.12
